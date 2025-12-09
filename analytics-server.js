@@ -209,10 +209,10 @@ app.get('/dashboard', (req, res) => {
               <th class="text-left py-3 px-4">Student</th>
               <th class="text-left py-3 px-4">Deployed App</th>
               <th class="text-center py-3 px-4">Total</th>
-              <th class="text-center py-3 px-4">💬 Chat</th>
-              <th class="text-center py-3 px-4">📝 Summarize</th>
-              <th class="text-center py-3 px-4">🖼️ Multimodal</th>
-              <th class="text-center py-3 px-4">🧠 RAG</th>
+              <th class="text-center py-3 px-4">Chat</th>
+              <th class="text-center py-3 px-4">Summarize</th>
+              <th class="text-center py-3 px-4">Multimodal</th>
+              <th class="text-center py-3 px-4">RAG</th>
               <th class="text-left py-3 px-4">Last Active</th>
             </tr>
           </thead>
