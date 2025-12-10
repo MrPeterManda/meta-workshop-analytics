@@ -29,6 +29,12 @@ No, not automatically. Let me explain how this works:
 
 You have **two separate repositories** with **two remotes** configured locally:
 
+0. ```
+   git remote add github https://github.com/MrPeterManda/meta-workshop-analytics.git
+
+    ```
+
+
 1. **origin** (GitLab team repo):
    ```
    https://gitlab.wethinkco.de/performanceteam/meta/meta-workshop-analytics
