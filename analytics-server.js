@@ -182,7 +182,7 @@ app.get('/dashboard', (req, res) => {
         </div>
         <div class="text-right">
           <button onclick="refreshDashboard()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg mb-2">🔄 Refresh</button><br>
-          <a href="/api/export?format=csv" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg inline-block">📊 Export CSV</a>
+          <a href="/api/export?format=csv" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg inline-block">Export CSV</a>
         </div>
       </div>
     </div>
@@ -261,7 +261,20 @@ app.get('/dashboard', (req, res) => {
               backgroundColor: ['rgba(59, 130, 246, 0.8)', 'rgba(34, 197, 94, 0.8)', 'rgba(168, 85, 247, 0.8)', 'rgba(249, 115, 22, 0.8)']
             }]
           },
-          options: { responsive: true, maintainAspectRatio: true }
+          options: { 
+            responsive: true, 
+            maintainAspectRatio: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 1,
+                  precision: 0
+                }
+              }
+            }
+          }
+
         });
 
         if (engagementChart) engagementChart.destroy();
@@ -276,7 +289,20 @@ app.get('/dashboard', (req, res) => {
             labels: engagementData.map(d => d.name),
             datasets: [{ label: 'Interactions', data: engagementData.map(d => d.interactions), backgroundColor: 'rgba(59, 130, 246, 0.8)' }]
           },
-          options: { indexAxis: 'y', responsive: true, maintainAspectRatio: true }
+          options: { 
+            indexAxis: 'y', 
+            responsive: true, 
+            maintainAspectRatio: true,
+            scales: {
+              x: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 1,
+                  precision: 0
+                }
+              }
+            }
+          }
         });
 
         const studentsHTML = data.students.map(s => {
@@ -394,7 +420,7 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n🚀 Analytics Server Running!`);
+  console.log(`\n Analytics Server Running!`);
   console.log(`   Registration: http://localhost:${PORT}/`);
   console.log(`   Dashboard: http://localhost:${PORT}/dashboard`);
   console.log(`   API: http://localhost:${PORT}/api/track\n`);
