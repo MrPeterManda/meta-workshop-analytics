@@ -133,6 +133,9 @@ Create a shortcut to push to both at once:
 # Create alias
 git config alias.pushboth '!git push origin master && git push github master'
 
+#or
+git config alias.pushboth '!git push origin main && git push github main'
+
 # Now use:
 git pushboth
 ```
